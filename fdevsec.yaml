@@ -1,0 +1,36 @@
+id:
+  org: ffcde0e1-6f91-476e-9bdb-76f12e2653c5
+  app: a1d4b2af-e81e-4fe6-9e3e-53947c052075
+
+# If below settings are not configured, scans will be performed for all supported scanners.
+#scanners:
+#  - sast
+#  - sca
+#  - secret
+#  - iac
+#  - container
+#  - dast
+
+# Configures languages for sast scanner. If not configured, scans will be performed on all supported languages
+#languages:
+#  - javascript
+#  - python
+
+# Configures target url where dynamic scan should be performed.
+#dast:
+#url: http://129.126.216.62:30080
+#  url: http://172.16.16.180:30080
+#  full_scan: true #true|false
+
+# Language scanners run sequentially by default. Can be configured to run in parallel.
+#resource:
+#  serial_scan: true #true|false
+
+# CI/CD pipeline fails when risk rating(range 0-9) exceeds the configured value.
+fail_pipeline:
+  risk_rating: 4
+
+# Only for FortiDevSec OnPrem users. Cloud users should keep it commented
+#on_prem:
+#  sec_ops_server: {your_onprem_fortidevsec_server_url}
+

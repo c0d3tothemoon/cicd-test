@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log4shell-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log4shell-demo
+  template:
+    metadata:
+      labels:
+        app: log4shell-demo
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+      - name: log4shell-demo
+        image: archstein/log4shell:latest
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: log4shell-demo
+spec:
+  type: NodePort
+  ports:
+     - port: 8080
+       name: log4shell-demo
+       nodePort: 30080
+  selector:
+    app: log4shell-demo
